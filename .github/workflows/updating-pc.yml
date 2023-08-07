@@ -1,0 +1,21 @@
+name: Update Code on PC
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Push code to PC
+        run: |
+          scp -r ./path/to/your/code MSI@178.119.120.235:/path/on/your/pc
+        env:
+          USER: MSI
+          IP_ADDRESS: 178.119.120.235
